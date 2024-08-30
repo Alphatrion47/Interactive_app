@@ -21,6 +21,8 @@ if "keyword" not in st.session_state:
 if "mydf" not in st.session_state:
     st.session_state.mydf = None
 
+user_prompt = None
+
 uploaded_file = st.file_uploader("Choose a file with candidate information. Acceptable formates are excel and csv:",type =["csv","xlsx","xls"])
 
 def file_reader(file):
