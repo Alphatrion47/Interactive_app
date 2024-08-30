@@ -5,7 +5,7 @@ import pandas as pd
 from groq import Groq
 import time
 
-client = Groq(api_key= "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")
+client = Groq(api_key= st.secrets["groq_passkey"])
 
 st.title("Interactive Selection")
 
