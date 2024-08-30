@@ -15,11 +15,13 @@ if "chat_history" not in st.session_state:
 if "df" not in st.session_state:
     st.session_state.df = None
 
+if "mydf" not in st.session_state:
+    st.session_state.mydf = None
+
 if "keyword" not in st.session_state:
     st.session_state.keyword = None
 
-if "mydf" not in st.session_state:
-    st.session_state.mydf = None
+
 
 user_prompt = None
 
@@ -55,7 +57,7 @@ if uploaded_file:
 
     st.write("task completed")
 
-if st.session_state.df:
+if st.session_state.df is not None:
     st.header("Candidate Screening")
     st.session_state.keyword = st.text_input("Enter the keyword criteria for screening (eg: MLops, sql, etc.)")
     st.session_state.mydf = my_search(st.session_state.keyword)
@@ -63,7 +65,7 @@ if st.session_state.df:
     st.dataframe(st.session_state.mydf)
     
 
-if st.session_state.mydf:
+if st.session_state.mydf is not None:
     for message in st.session_state.chat_history:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
