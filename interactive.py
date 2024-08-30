@@ -55,11 +55,6 @@ if uploaded_file:
 
     st.write("task completed")
 
-
-st.header("Candidate Screening")
-
-st.session_state.keyword = st.text_input("Enter the keyword criteria for screening (eg: MLops, sql, etc.)")
-
 if st.session_state.df:
     st.header("Candidate Screening")
     st.session_state.keyword = st.text_input("Enter the keyword criteria for screening (eg: MLops, sql, etc.)")
