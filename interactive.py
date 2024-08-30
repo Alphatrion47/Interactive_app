@@ -49,8 +49,7 @@ if uploaded_file:
     except Exception as ex:
         st.error("Failed to read file due to the following reasons:",ex)
     st.dataframe(st.session_state.df.head())
-    st.session_state.total_candidates = len(st.session_state.df)
-    st.write("There are {} total candidates.".format(st.session_state.total_candidates))
+    st.write("There are {} total candidates.".format(len(st.session_state.df)))
     # bar = st.progress(25)
     # time.sleep(5)
     # bar.progress(100)
@@ -64,6 +63,7 @@ if st.session_state.df is not None:
 
 if st.session_state.keyword:
     st.write("Candidate list filtered succesfully")
+    st.write("There are {} total candidates.".format(len(st.session_state.mydf)))
     st.dataframe(st.session_state.mydf)
 
     for message in st.session_state.chat_history:
