@@ -58,18 +58,22 @@ st.header("Candidate Screening")
 
 st.session_state.keyword = st.text_input("Enter the keyword criteria for screening (eg: MLops, sql, etc.)")
 
-if st.session_state.keyword:
+if st.session_state.df:
+    st.header("Candidate Screening")
+    st.session_state.keyword = st.text_input("Enter the keyword criteria for screening (eg: MLops, sql, etc.)")
     st.session_state.mydf = my_search(st.session_state.keyword)
+    st.write("Candidate list filtered succesfully")
     st.dataframe(st.session_state.mydf)
-    st.write("Modified df read succesfully")
+    
 
-for message in st.session_state.chat_history:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+if st.session_state.mydf:
+    for message in st.session_state.chat_history:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
-user_prompt = st.chat_input("Enquire about the candidates")
+    user_prompt = st.chat_input("Enquire about the candidates")
 
-#Checking if mydf is available
+
 
 if user_prompt:
     st.chat_message("user").markdown(user_prompt)  
