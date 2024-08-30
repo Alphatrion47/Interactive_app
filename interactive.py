@@ -63,7 +63,7 @@ if st.session_state.df is not None:
 
 if st.session_state.keyword:
     st.write("Candidate list filtered succesfully")
-    st.write("There are {} total candidates.".format(len(st.session_state.mydf)))
+    st.write("There are {} total candidates, having {} skillset.".format(len(st.session_state.mydf),st.session_state.keyword))
     st.dataframe(st.session_state.mydf)
 
     for message in st.session_state.chat_history:
