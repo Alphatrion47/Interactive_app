@@ -51,10 +51,10 @@ if uploaded_file:
     st.dataframe(st.session_state.df.head())
     st.session_state.total_candidates = len(st.session_state.df)
     st.write("There are {} total candidates.".format(st.session_state.total_candidates))
-    # bar = st.progress(25)
-    # time.sleep(5)
-    # bar.progress(100)
-    # st.write("task completed")
+    bar = st.progress(25)
+    time.sleep(5)
+    bar.progress(100)
+    st.write("task completed")
 
 if st.session_state.df is not None:
     st.header("Candidate Screening")
