@@ -35,6 +35,9 @@ def my_search(keyword):
     if "Skill" in st.session_state.df.columns:
         filtered_df = st.session_state.df[st.session_state.df["Skill"].str.contains(keyword,case = False, na= False)]
         return filtered_df
+    elif "Skills" in st.session_state.df.columns:
+        filtered_df = st.session_state.df[st.session_state.df["Skills"].str.contains(keyword,case = False, na= False)]
+        return filtered_df
     else:
         st.error("The given file does not contain a skill column.")
 
