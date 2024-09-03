@@ -54,7 +54,7 @@ if uploaded_file:
 
 if st.session_state.df is not None:
     st.header("Candidate Screening")
-    st.session_state.keyword = st.text_input("Enter the keyword criteria for screening (eg: MLops, sql, etc.)")
+    st.session_state.keyword = st.text_input("Enter the primary skill for screening (eg: python, sql, etc.)")
     st.session_state.mydf = my_search(st.session_state.keyword)
     
 
