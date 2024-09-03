@@ -3,7 +3,6 @@
 import streamlit as st
 import pandas as pd
 from groq import Groq
-import time
 
 client = Groq(api_key= st.secrets["groq_passkey"])
 
@@ -47,10 +46,6 @@ if uploaded_file:
         st.error("Failed to read file due to the following reasons:",ex)
     st.dataframe(st.session_state.df.head())
     st.write("There are {} total candidates.".format(len(st.session_state.df)))
-    # bar = st.progress(25)
-    # time.sleep(5)
-    # bar.progress(100)
-    # st.write("task completed")
 
 if st.session_state.df is not None:
     st.header("Candidate Screening")
